@@ -1,201 +1,71 @@
-import React, { useState } from 'react';
-import { Package, ArrowLeft, Calendar, Phone, Mail, Users, Upload, CreditCard } from 'lucide-react';
-
-// Home Page Component
-const HomePage = ({ onNavigate }) => (
-  <div className="bg-gray-100 p-8 min-h-screen">
-    <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-      <h1 className="text-3xl font-bold text-gray-800 text-center mb-2">Welcome to Bangkok</h1>
-      <p className="text-gray-600 text-center mb-8">Luggage Delivery Service</p>
-
-      {/* Sample Images */}
-      <div className="space-y-4 mb-8">
-        <div className="bg-gray-200 rounded-lg aspect-video flex items-center justify-center">
-          <Package size={48} className="text-gray-400" />
-          <span className="ml-2 text-gray-500">home1.png</span>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luggage delivery bangkok</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .image-container {
+            margin-bottom: 30px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+        .social-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>welcome to bangkok</h1>
+        <div class="image-container">
+            <img src="home1.png" alt="รูปภาพสวยๆ">
+  	    <img src="step_r1.png" alt="step">
         </div>
-        <div className="bg-gray-200 rounded-lg aspect-video flex items-center justify-center">
-          <Users size={48} className="text-gray-400" />
-          <span className="ml-2 text-gray-500">step_r1.png</span>
+        <div class="social-links">
+            <a href="https://line.me/R/ti/p/@bsmile2324" class="social-link" target="_blank">Line</a>
+            <a href="https://wa.me/66938932888" class="social-link" target="_blank">WhatsApp</a>
         </div>
-      </div>
-
-      {/* Main Call-to-Action Button */}
-      <button 
-        onClick={() => onNavigate('delivery')}
-        className="w-full bg-green-500 text-white py-3 rounded-full font-semibold hover:bg-green-600 transition-all hover:-translate-y-0.5 mb-6"
-      >
-        Delivery Luggage
-      </button>
-
-      {/* Social Links */}
-      <div className="flex justify-center gap-4">
-        <a href="https://line.me/R/ti/p/@bsmile2324" target="_blank" rel="noopener noreferrer"
-           className="px-6 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors">
-          Line
-        </a>
-        <a href="https://wa.me/66938932888" target="_blank" rel="noopener noreferrer"
-           className="px-6 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors">
-          WhatsApp
-        </a>
-      </div>
     </div>
-  </div>
-);
-
-// Delivery Form Component
-const DeliveryForm = ({ onNavigate }) => (
-  <div className="bg-gray-100 p-8 min-h-screen">
-    <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-      {/* Back Button */}
-      <button 
-        onClick={() => onNavigate('home')}
-        className="flex items-center px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors mb-6"
-      >
-        <ArrowLeft size={16} className="mr-2" />
-        Back to Home
-      </button>
-
-      <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">Delivery Luggage</h1>
-
-      {/* Upload Sections */}
-      <div className="space-y-6 mb-8">
-        {/* Passport Upload */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Passport Photo *
-          </label>
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-green-500 transition-colors cursor-pointer">
-            <Upload size={24} className="mx-auto text-gray-400 mb-2" />
-            <p className="text-sm text-gray-600">Click to upload passport photo</p>
-            <p className="text-xs text-red-500 mt-2">Please ensure your passport photo is clear and all text is readable</p>
-          </div>
-        </div>
-
-        {/* Selfie Upload */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Selfie with Passport *
-          </label>
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-green-500 transition-colors cursor-pointer">
-            <Upload size={24} className="mx-auto text-gray-400 mb-2" />
-            <p className="text-sm text-gray-600">Click to upload selfie with passport</p>
-            <p className="text-xs text-red-500 mt-2">Please take a clear photo of yourself holding your passport</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Form Fields */}
-      <div className="space-y-6">
-        {/* Contact Info */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Phone Number *
-          </label>
-          <div className="relative">
-            <Phone className="absolute left-3 top-2.5 text-gray-400" size={20} />
-            <input
-              type="tel"
-              className="w-full p-2 pl-10 border border-gray-300 rounded-lg"
-              placeholder="Enter your phone number"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Email
-          </label>
-          <div className="relative">
-            <Mail className="absolute left-3 top-2.5 text-gray-400" size={20} />
-            <input
-              type="email"
-              className="w-full p-2 pl-10 border border-gray-300 rounded-lg"
-              placeholder="Enter your email"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Delivery Date *
-          </label>
-          <div className="relative">
-            <Calendar className="absolute left-3 top-2.5 text-gray-400" size={20} />
-            <input
-              type="date"
-              className="w-full p-2 pl-10 border border-gray-300 rounded-lg"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Number of Bags *
-          </label>
-          <div className="relative">
-            <Package className="absolute left-3 top-2.5 text-gray-400" size={20} />
-            <select className="w-full p-2 pl-10 border border-gray-300 rounded-lg appearance-none">
-              <option value="">Select number of bags</option>
-              <option>1 bag</option>
-              <option>2 bags</option>
-              <option>3 bags</option>
-              <option>4 bags</option>
-              <option>5+ bags</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Additional Details
-          </label>
-          <textarea
-            className="w-full p-2 border border-gray-300 rounded-lg h-24"
-            placeholder="Enter any additional details or special requests"
-          />
-        </div>
-      </div>
-
-      {/* Payment Section */}
-      <div className="mt-8 p-6 bg-gray-50 rounded-lg">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-          <CreditCard size={20} className="mr-2" />
-          Payment Methods
-        </h3>
-        <p className="text-gray-600 mb-4">Please select your preferred payment method:</p>
-        <div className="flex flex-wrap gap-4">
-          <button className="flex-1 bg-green-500 text-white py-3 px-4 rounded-full font-semibold hover:bg-green-600 transition-colors min-w-[120px]">
-            PromptPay
-          </button>
-          <button className="flex-1 bg-green-500 text-white py-3 px-4 rounded-full font-semibold hover:bg-green-600 transition-colors min-w-[120px]">
-            Bank Transfer
-          </button>
-        </div>
-      </div>
-
-      {/* Submit Button */}
-      <button className="w-full bg-green-500 text-white py-3 rounded-full font-semibold hover:bg-green-600 transition-colors mt-8">
-        Submit Booking
-      </button>
-    </div>
-  </div>
-);
-
-// Main Component to Show Navigation Between Pages
-export default function WebsitePreview() {
-  const [currentPage, setCurrentPage] = React.useState('home');
-
-  return (
-    <div className="flex flex-col md:flex-row gap-8 p-4">
-      <div className="flex-1">
-        <h2 className="text-xl font-semibold mb-4 text-center">Home Page</h2>
-        <HomePage onNavigate={setCurrentPage} />
-      </div>
-      <div className="flex-1">
-        <h2 className="text-xl font-semibold mb-4 text-center">Delivery Page</h2>
-        <DeliveryForm onNavigate={setCurrentPage} />
-      </div>
-    </div>
-  );
-}
+</body>
+</html>
